@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Expense } from './types';
+import ExpenseForm from './components/ExpenseForm';
 
 export default function App() {
 
@@ -10,6 +11,10 @@ export default function App() {
   const [search, setSearch] = useState<string>('');
   const [filter, setFilter] = useState<string>('');
 
+  function addExpense(expense: Omit<Expense, 'id'>): void {
+    const newExpense = {...expense, id: crypto.randomUUID()}
+    setExpenses([...expenses, newExpense])
+  }
 
   useEffect(() => {
     localStorage.setItem('expenses', JSON.stringify(expenses));
@@ -17,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      
+      <ExpenseForm onAdd={addExpense}/>
     </>
   )
 }

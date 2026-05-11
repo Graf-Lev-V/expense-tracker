@@ -10,8 +10,8 @@ export default function ExpenseForm({ onAdd }: { onAdd: (value: Omit<Expense, 'i
     return (
         <>  
             <form onSubmit={(e) => {e.preventDefault(); onAdd({title, amount, category}); setTitle(''); setAmount(0); setCategory('');}}>
-                <input value={title} onChange={(e) => setTitle(e.target.value)}/>
-                <input value={amount} onChange={(e) => setAmount(Number(e.target.value))}/>
+                <input placeholder="expense" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <input placeholder="cost" value={amount} onChange={(e) => setAmount(Number(e.target.value))}/>
                 <select onChange={(e) => setCategory(e.target.value)}>
                     <option>Food</option>
                     <option>Games</option>

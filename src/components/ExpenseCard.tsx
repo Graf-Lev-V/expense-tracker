@@ -4,7 +4,7 @@ export default function ExpenseCard({expense, onDelete}: {expense: Expense; onDe
     return (
         <>
             <p>{expense.title}</p>
-            <p>Cost: {expense.amount}</p>
+            <p>Cost: {expense.amount}$</p>
             <p>Category: {expense.category}</p>
             <button onClick={() => onDelete(expense.id)}>Delete</button>
         </>

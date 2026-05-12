@@ -16,6 +16,7 @@ export default function App() {
   const [filter, setFilter] = useState<string>('All');
 
   function addExpense(expense: Omit<Expense, 'id'>): void {
+    if (isNaN(expense.amount)) return;
     const newExpense = {...expense, id: crypto.randomUUID()}
     setExpenses([...expenses, newExpense])
   }
